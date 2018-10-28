@@ -67,9 +67,17 @@ export default class BarcodeScannerExample extends React.Component {
         fetch('http://api.ethplorer.io/getTxInfo/' + data + '?apiKey=freekey')
             .then(response => response.json())
             .then(data => {
-                let message = JSON.stringify(data.input);
-                alert(message);
-                // alert(`Bar code with type and data ${JSON.stringify(data.input)} has been scanned!`);
+                let message = data.input;
+                let convertedMsg = this.hexToString(message);
+                alert('This is the message:' + convertedMsg);
             });
+    };
+
+    hexToString = hex => {
+        let str = '';
+        for (let i = 6; i < hex.length; i += 2) {
+            str += String.fromCharCode(parseInt(hex.substr(i, 2), 16));
+        }
+        return str;
     };
 }
