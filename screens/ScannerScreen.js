@@ -64,6 +64,12 @@ export default class BarcodeScannerExample extends React.Component {
     }
 
     handleBarCodeScanned = ({ type, data }) => {
-        alert(`Bar code with type ${type} and data ${data} has been scanned!`);
+        fetch('http://api.ethplorer.io/getTxInfo/' + data + '?apiKey=freekey')
+            .then(response => response.json())
+            .then(data => {
+                let message = JSON.stringify(data.input);
+                alert(message);
+                // alert(`Bar code with type and data ${JSON.stringify(data.input)} has been scanned!`);
+            });
     };
 }
