@@ -3,6 +3,7 @@ import { Image, Platform, ScrollView, StyleSheet, Text, TouchableOpacity, View }
 import { WebBrowser } from 'expo';
 
 import { MonoText } from '../components/StyledText';
+import { red, bold } from 'ansi-colors';
 
 export default class HomeScreen extends React.Component {
     static navigationOptions = {
@@ -17,37 +18,38 @@ export default class HomeScreen extends React.Component {
                         <Image
                             source={
                                 __DEV__
-                                    ? require('../assets/images/robot-dev.png')
-                                    : require('../assets/images/robot-prod.png')
+                                    ? require('../assets/images/logo-dev.png')
+                                    : require('../assets/images/logo-prod.png')
                             }
                             style={styles.welcomeImage}
                         />
                     </View>
 
                     <View style={styles.getStartedContainer}>
+                        <Text style={styles.logoText}>blockchain explorer</Text>
+
                         {this._maybeRenderDevelopmentModeWarning()}
 
-                        <Text style={styles.getStartedText}>Get started by opening</Text>
-
-                        <View style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
+                        {/* <View style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
                             <MonoText style={styles.codeHighlightText}>screens/HomeScreen.js</MonoText>
-                        </View>
+                        </View> */}
 
                         <Text style={styles.getStartedText}>
-                            Change this text and your app will automatically reload.
+                            Open scanner and scan QR code to read the message from the transaction in the
+                            blockchain.
                         </Text>
                     </View>
 
-                    <View style={styles.helpContainer}>
+                    {/* <View style={styles.helpContainer}>
                         <TouchableOpacity onPress={this._handleHelpPress} style={styles.helpLink}>
                             <Text style={styles.helpLinkText}>
                                 Help, it didn’t automatically reload!
                             </Text>
                         </TouchableOpacity>
-                    </View>
+                    </View> */}
                 </ScrollView>
 
-                <View style={styles.tabBarInfoContainer}>
+                {/* <View style={styles.tabBarInfoContainer}>
                     <Text style={styles.tabBarInfoText}>This is a tab bar. You can edit it in:</Text>
 
                     <View style={[styles.codeHighlightContainer, styles.navigationFilename]}>
@@ -55,59 +57,68 @@ export default class HomeScreen extends React.Component {
                             navigation/MainTabNavigator.js
                         </MonoText>
                     </View>
-                </View>
+                </View> */}
             </View>
         );
     }
 
     _maybeRenderDevelopmentModeWarning() {
         if (__DEV__) {
-            const learnMoreButton = (
-                <Text onPress={this._handleLearnMorePress} style={styles.helpLinkText}>
-                    Learn more
-                </Text>
-            );
+            // const learnMoreButton = (
+            //     <Text onPress={this._handleLearnMorePress} style={styles.helpLinkText}>
+            //         Learn more
+            //     </Text>
+            // );
 
             return (
                 <Text style={styles.developmentModeText}>
-                    Development mode is enabled, your app will be slower but you can use useful
-                    development tools. {learnMoreButton}
-                </Text>
-            );
-        } else {
-            return (
-                <Text style={styles.developmentModeText}>
-                    You are not in development mode, your app will run at full speed.
+                    Development mode is enabled.
+                    {/* , your app will be slower but you can use useful
+                    development tools. {learnMoreButton} */}
                 </Text>
             );
         }
+        // else {
+        //     return (
+        //         <Text style={styles.developmentModeText}>
+        //             You are not in development mode, your app will run at full speed.
+        //         </Text>
+        //     );
+        // }
     }
 
-    _handleLearnMorePress = () => {
-        WebBrowser.openBrowserAsync('https://docs.expo.io/versions/latest/guides/development-mode');
-    };
+    // _handleLearnMorePress = () => {
+    //     WebBrowser.openBrowserAsync('https://docs.expo.io/versions/latest/guides/development-mode');
+    // };
 
-    _handleHelpPress = () => {
-        WebBrowser.openBrowserAsync(
-            'https://docs.expo.io/versions/latest/guides/up-and-running.html#can-t-see-your-changes'
-        );
-    };
+    // _handleHelpPress = () => {
+    //     WebBrowser.openBrowserAsync(
+    //         'https://docs.expo.io/versions/latest/guides/up-and-running.html#can-t-see-your-changes'
+    //     );
+    // };
 }
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff'
+        backgroundColor: '#0A0808'
+    },
+    logoText: {
+        fontSize: 22,
+        fontWeight: 'bold',
+        color: '#E28413',
+        marginBottom: 20
     },
     developmentModeText: {
         marginBottom: 20,
-        color: 'rgba(0,0,0,0.4)',
+        // color: 'rgba(0,0,0,0.4)',
+        color: '#fff',
         fontSize: 14,
         lineHeight: 19,
         textAlign: 'center'
     },
     contentContainer: {
-        paddingTop: 30
+        paddingTop: 100
     },
     welcomeContainer: {
         alignItems: 'center',
@@ -115,8 +126,8 @@ const styles = StyleSheet.create({
         marginBottom: 20
     },
     welcomeImage: {
-        width: 100,
-        height: 80,
+        width: 150,
+        height: 150,
         resizeMode: 'contain',
         marginTop: 3,
         marginLeft: -10
@@ -138,7 +149,7 @@ const styles = StyleSheet.create({
     },
     getStartedText: {
         fontSize: 17,
-        color: 'rgba(96,100,109, 1)',
+        color: '#8B8E94',
         lineHeight: 24,
         textAlign: 'center'
     },
@@ -169,16 +180,16 @@ const styles = StyleSheet.create({
     },
     navigationFilename: {
         marginTop: 5
-    },
-    helpContainer: {
-        marginTop: 15,
-        alignItems: 'center'
-    },
-    helpLink: {
-        paddingVertical: 15
-    },
-    helpLinkText: {
-        fontSize: 14,
-        color: '#2e78b7'
     }
+    // helpContainer: {
+    //     marginTop: 15,
+    //     alignItems: 'center'
+    // },
+    // helpLink: {
+    //     paddingVertical: 15
+    // },
+    // helpLinkText: {
+    //     fontSize: 14,
+    //     color: '#2e78b7'
+    // }
 });
