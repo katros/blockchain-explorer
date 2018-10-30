@@ -27,7 +27,7 @@
 // });
 
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Alert } from 'react-native';
 import { BarCodeScanner, Permissions } from 'expo';
 
 export default class BarcodeScanner extends React.Component {
@@ -70,7 +70,10 @@ export default class BarcodeScanner extends React.Component {
             .then(data => {
                 let message = data.input;
                 let convertedMsg = this.hexToString(message);
-                alert('This is the message:' + convertedMsg);
+                // Alert.alert('This is the message:' + convertedMsg);
+                Alert.alert('Message:', convertedMsg, [
+                    { text: 'CLOSE', onPress: () => console.log('CLOSE Pressed') }
+                ]);
             });
     };
 
