@@ -17,13 +17,7 @@ HomeStack.navigationOptions = {
     tabBarIcon: ({ focused }) => (
         <TabBarIcon
             focused={focused}
-            name={
-                Platform.OS === 'ios'
-                    ? // ? `ios-information-circle${focused ? '' : '-outline'}`
-                      // : 'md-information-circle'
-                      `ios-home${focused ? '' : '-outline'}`
-                    : 'md-home'
-            }
+            name={Platform.OS === 'ios' ? `ios-home${focused ? '' : '-outline'}` : 'md-home'}
         />
     )
 };
@@ -55,8 +49,7 @@ SettingsStack.navigationOptions = {
             focused={focused}
             name={
                 Platform.OS === 'ios'
-                    ? // ? `ios-options${focused ? '' : '-outline'}` : 'md-options'
-                      `ios-information-circle${focused ? '' : '-outline'}`
+                    ? `ios-information-circle${focused ? '' : '-outline'}`
                     : 'md-information-circle'
             }
         />
