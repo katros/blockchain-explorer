@@ -1,7 +1,7 @@
 {
     "expo": {
         "name": "blockchain explorer",
-        "description": "blockchain explorer allows user to scan QR code and read message stored in the blockchain transaction.",
+        "description": "Scan QR code and read the message \nstored in the blockchain transaction.",
         "slug": "blockchain",
         "privacy": "public",
         "sdkVersion": "30.0.0",
