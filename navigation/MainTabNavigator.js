@@ -13,6 +13,7 @@ const HomeStack = createStackNavigator({
 
 HomeStack.navigationOptions = {
     tabBarLabel: 'Home',
+    tabBarOptions: { activeTintColor: '#E28413' },
     tabBarIcon: ({ focused }) => (
         <TabBarIcon
             focused={focused}
@@ -33,10 +34,11 @@ const ScannerStack = createStackNavigator({
 
 ScannerStack.navigationOptions = {
     tabBarLabel: 'QR Code Scanner',
+    tabBarOptions: { activeTintColor: '#E28413' },
     tabBarIcon: ({ focused }) => (
         <TabBarIcon
             focused={focused}
-            name={Platform.OS === 'ios' ? `ios-link${focused ? '' : '-outline'}` : 'md-link'}
+            name={Platform.OS === 'ios' ? `ios-qr-scanner${focused ? '' : '-outline'}` : 'md-qr-scanner'}
         />
     )
 };
@@ -46,7 +48,8 @@ const SettingsStack = createStackNavigator({
 });
 
 SettingsStack.navigationOptions = {
-    tabBarLabel: 'Info',
+    tabBarLabel: 'App Info',
+    tabBarOptions: { activeTintColor: '#E28413' },
     tabBarIcon: ({ focused }) => (
         <TabBarIcon
             focused={focused}

@@ -1,8 +1,8 @@
-const tintColor = '#fde01f';
+const tintColor = '#E28413';
 
 export default {
     tintColor,
-    tabIconDefault: '#fff',
+    tabIconDefault: '#59595b',
     tabIconSelected: tintColor,
     tabBar: '#fefefe',
     errorBackground: 'red',
